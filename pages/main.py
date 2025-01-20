@@ -185,7 +185,7 @@ with col4:
             planilha2 = pd.read_excel(upload2)
             if 'NOME_CLI' in planilha2.columns:
                 clientes_unicos = planilha2['NOME_CLI'].dropna().unique()
-                nomes_clientes = st.multiselect("Selecione os clientes para devoluções:", options=sorted(clientes_unicos))
+                nomes_clientes = st.multiselect("Selecione os clientes:", options=sorted(clientes_unicos))
             else:
                 st.error("A coluna 'NOME_CLI' não foi encontrada na planilha de movimentos.")
                 nomes_clientes = []
@@ -199,7 +199,7 @@ with col5:
     if upload2:
         try:
             if 'NOME_CLI' in planilha2.columns:
-                convenios = st.multiselect("Selecione os clientes para devoluções de convênio:", options=sorted(clientes_unicos))
+                convenios = st.multiselect("Selecione os convênio:", options=sorted(clientes_unicos))
             else:
                 convenios = []
         except Exception as e:
